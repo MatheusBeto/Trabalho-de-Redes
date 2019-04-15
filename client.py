@@ -12,8 +12,10 @@ divisao = entrada.split("/")
 hostname = divisao[0]
 divisao[0] = ""
 pagina = "/".join(divisao)
-print pagina
+if(pagina == ""):
+    pagina = "/index.html"
 
+print pagina
 port = int(entrada2)
 
 print "hostname: {}".format(hostname)
@@ -34,7 +36,6 @@ client.send(requisicao)
 
 # receive the response data (4096 is recommended buffer size)
 response = client.recv(4096)
-
 
 with open('received_file.html', 'wb') as f:
     while True:
